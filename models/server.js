@@ -11,7 +11,7 @@ class Server {
     constructor(){
 
         this.app    = express();
-        this.port   = process.env.port;
+        this.port   = process.env.PORT;
 
         // Http server
         this.server = http.createServer(this.app);
@@ -37,7 +37,7 @@ class Server {
         this.configurarSockets();
 
         //Inicializar Server
-        this.server.listen( this.port, () => { 
+        this.server.listen( this.port, '0.0.0.0', () => { 
             console.log(`Servidor corriendo en el puerto ${this.port}`);
          });
     }
